@@ -27,26 +27,32 @@ def make_body(L, D, H):
         pass
     return body
 
-def make_pins(D, numbered_positions, row_side=-1):
-    raw = [idx * PIN_PITCH for _, idx in numbered_positions]
-    center = (min(raw) + max(raw)) / 2
+def pin_x_positions(L, numbered_positions, pin1_from_left):
+    # MORNSUN drawings define the first pin by a package-edge offset.
+    # Do NOT center the pin group automatically; 2WR3 is intentionally asymmetric.
+    return {
+        pin_no: -L/2 + pin1_from_left + idx * PIN_PITCH
+        for pin_no, idx in numbered_positions
+    }
+
+def make_pins(L, D, numbered_positions, pin1_from_left, row_side):
     y = row_side * (D/2 - PIN_ROW_FROM_EDGE)
+    xpos = pin_x_positions(L, numbered_positions, pin1_from_left)
     shapes = []
-    for pin_no, idx in numbered_positions:
-        x = idx * PIN_PITCH - center
+    for pin_no, _ in numbered_positions:
         p = (
             cq.Workplane("XY")
             .box(PIN_X, PIN_Y, PIN_EMBED_TOP - PIN_BOTTOM_Z, centered=(True, True, False))
-            .translate((x, y, PIN_BOTTOM_Z))
+            .translate((xpos[pin_no], y, PIN_BOTTOM_Z))
         )
         try:
             p = p.edges("|Z").chamfer(0.02)
         except Exception:
             pass
         shapes.append(p.val())
-    return cq.Compound.makeCompound(shapes)
+    return cq.Compound.makeCompound(shapes), xpos
 
-def add_markings(assy, L, D, top_z, part_text, row_side=-1):
+def add_markings(assy, L, D, top_z, part_text, pin1_x, row_side):
     rows = [
         ("MORNSUN", 0.28*D, min(1.35, L/7.0)),
         (part_text, 0.02*D, min(1.05, L/9.0)),
@@ -67,7 +73,7 @@ def add_markings(assy, L, D, top_z, part_text, row_side=-1):
         dot = (
             cq.Workplane("XY")
             .workplane(offset=top_z)
-            .center(-L/2 + 1.10, row_side * (D/2 - 1.15))
+            .center(pin1_x, row_side * (D/2 - 1.15))
             .circle(0.22)
             .extrude(0.020)
         )
@@ -75,26 +81,40 @@ def add_markings(assy, L, D, top_z, part_text, row_side=-1):
     except Exception:
         pass
 
-def build(name, L, D, H, pin_positions, marked, row_side=-1):
+def build(name, L, D, H, pin_positions, pin1_from_left, marked, row_side):
     a = cq.Assembly(name=name.replace("-", "_"))
     a.add(make_body(L, D, H), name="BLACK_CASE", color=BLACK)
-    a.add(make_pins(D, pin_positions, row_side), name="PINS", color=PIN_COLOR)
+    pins, xpos = make_pins(L, D, pin_positions, pin1_from_left, row_side)
+    a.add(pins, name="PINS", color=PIN_COLOR)
     if marked:
-        add_markings(a, L, D, BODY_STANDOFF + H, name, row_side)
+        add_markings(a, L, D, BODY_STANDOFF + H, name, xpos[1], row_side)
     return a
 
 def main():
     out = ROOT / "generated" / "MORNSUN_B_S_WR3"
     variants = [
-        # 1WR3 keeps the original row side.
-        ("B1212S-1WR3", 11.60, 6.00, 10.16, [(1,0),(2,1),(3,2),(4,3)], -1),
-        # 2WR3 is mirrored to the opposite long edge to match the real part/front-view orientation.
-        ("B1212S-2WR3", 19.65, 7.05, 10.16, [(1,0),(2,1),(4,3),(6,5)], +1),
+        # B_S-1WR3 official drawing:
+        # pin 1 edge offset = 1.99 mm; pins 1-2-3-4 at 2.54 mm grid.
+        ("B1212S-1WR3", 11.60, 6.00, 10.16,
+         [(1,0),(2,1),(3,2),(4,3)], 1.99, -1),
+
+        # B_S-2WR3 official drawing:
+        # pin 1 edge offset = 2.21 mm nominal; single-output pins 1-2-4-6.
+        # This group is NOT centered inside the 19.65 mm body.
+        ("B1212S-2WR3", 19.65, 7.05, 10.16,
+         [(1,0),(2,1),(4,3),(6,5)], 2.21, +1),
     ]
-    for name, L, D, H, pins, row_side in variants:
+
+    for name, L, D, H, pins, pin1_from_left, row_side in variants:
         for marked, suffix in [(True, "REALISTIC"), (False, "CLEAN")]:
             p = out / f"{name}_{suffix}.step"
-            print(p, export_step(build(name, L, D, H, pins, marked, row_side), p))
+            print(
+                p,
+                export_step(
+                    build(name, L, D, H, pins, pin1_from_left, marked, row_side),
+                    p,
+                ),
+            )
 
 if __name__ == "__main__":
     main()
