@@ -31,3 +31,8 @@ Các model trong repo được dựng từ mechanical drawing / datasheet / ản
 - TI DUB SOP-8 mechanical drawing and user screenshots used.
 - User explicitly prefers correct lead pitch/position and visually proportional body.
 - Current canonical: V4 proportional; do not revert to earlier tall-body versions.
+
+## MORNSUN B1212S WR3
+- Product pages: B1212S-1WR3 and B1212S-2WR3 from MORNSUN.
+- Datasheet dimensions used: B_S-1WR3 = 11.60 x 6.00 x 10.16 mm; B_S-2WR3 = 19.65 x 7.05 x 10.16 mm.
+- Recommended layout is on a 2.54 mm grid. B_S-2WR3 single-output pin set is 1,2,4,6.
