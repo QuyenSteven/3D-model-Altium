@@ -1,0 +1,53 @@
+name: Generate STEP library
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "generators/**"
+      - "models/Capacitors/CBB/**"
+      - ".github/workflows/generate-models.yml"
+      - "requirements.txt"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install CadQuery
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate all STEP models
+        run: |
+          python generators/generate_xh254.py
+          python generators/generate_vh396.py
+          python generators/generate_amc1200.py
+          python generators/generate_rtl8367s.py
+          python generators/generate_hfd4.py
+          python generators/generate_cbb.py
+          python generators/generate_sfp_u77.py
+
+      - name: Commit generated library
+        run: |
+          git config user.name "3D Model Altium Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add generated
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+          else
+            git commit -m "build: regenerate STEP library [skip ci]"
+            git push
+          fi
