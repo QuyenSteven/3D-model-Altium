@@ -96,3 +96,10 @@ Bản đầu thân quá cao và chân gull-wing dài/dốc, nhìn không tương
 7. Re-import và validate bbox.
 8. Tạo note: nguồn, dimension assumptions, phần nào exact, phần nào visual approximation.
 9. Nếu user gửi screenshot Altium, ưu tiên sửa từ nguyên nhân thay vì scale/vá.
+
+### MORNSUN B1212S WR3
+- Current family: B1212S-1WR3 (1 W) and B1212S-2WR3 (2 W), SIP.
+- PCB-critical dimensions: 2.54 mm grid; 1 W pins 1-4 consecutive; 2 W single-output uses pins 1,2,4,6.
+- Body dimensions from MORNSUN datasheets: 1 W = 11.60 x 6.00 x 10.16 mm; 2 W = 19.65 x 7.05 x 10.16 mm.
+- Pin row is 0.90 mm from long case edge; pins approx. 0.50 x 0.30 mm; exposed length from case 4.10 mm.
+- Use CLEAN in Altium when top text is unnecessary; REALISTIC adds MORNSUN/part marking and pin-1 dot.
