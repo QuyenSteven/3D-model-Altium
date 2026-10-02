@@ -17,3 +17,10 @@
 - AMC1200: V4 proportional / V4 clean.
 - XH2.54: V3 fixed, 10-color generation.
 - VH3.96: V3 fixed, 10-color generation.
+
+## 2026-10-03 — MORNSUN B1212S WR3
+- Added B1212S-1WR3 (1 W) and B1212S-2WR3 (2 W) SIP STEP generators.
+- 1 W body: 11.60 x 6.00 x 10.16 mm; pins 1,2,3,4 on 2.54 mm grid.
+- 2 W body: 19.65 x 7.05 x 10.16 mm; single-output pins 1,2,4,6 on 2.54 mm grid.
+- Pin row kept 0.90 mm from long edge; pin section 0.50 x 0.30 mm; pin length from body 4.10 mm.
+- Both REALISTIC and CLEAN variants are generated.
