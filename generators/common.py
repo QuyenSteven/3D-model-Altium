@@ -28,3 +28,5 @@ def validate_step(path):
     b = comp.BoundingBox()
     return (round(b.xlen, 3), round(b.ylen, 3), round(b.zlen, 3),
             round(b.zmin, 3), round(b.zmax, 3))
+
+# Touch this file to trigger the STEP generation workflow when generator logic changes.
