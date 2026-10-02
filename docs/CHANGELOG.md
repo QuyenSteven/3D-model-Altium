@@ -24,3 +24,10 @@
 - 2 W body: 19.65 x 7.05 x 10.16 mm; single-output pins 1,2,4,6 on 2.54 mm grid.
 - Pin row kept 0.90 mm from long edge; pin section 0.50 x 0.30 mm; pin length from body 4.10 mm.
 - Both REALISTIC and CLEAN variants are generated.
+## 2026-10-03 — MORNSUN B1212S-2WR3 orientation fix
+
+- Corrected B1212S-2WR3 pin-row side after Altium visual check against the real part photo.
+- 2WR3 pin row is now on the opposite long edge of the package (row_side = +1).
+- 1WR3 keeps its previous orientation (row_side = -1).
+- Pin grid/pitch and package dimensions are unchanged; this is an orientation correction only.
+
