@@ -38,7 +38,8 @@ jobs:
           python generators/generate_rtl8367s.py
           python generators/generate_hfd4.py
           python generators/generate_cbb.py
-          python generators/generate_sfp_u77.py\n          python generators/generate_mornsun_b_s_wr3.py
+          python generators/generate_sfp_u77.py
+          python generators/generate_mornsun_b_s_wr3.py
 
       - name: Commit generated library
         run: |
