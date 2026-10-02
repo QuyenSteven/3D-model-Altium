@@ -27,10 +27,10 @@ def make_body(L, D, H):
         pass
     return body
 
-def make_pins(D, numbered_positions):
+def make_pins(D, numbered_positions, row_side=-1):
     raw = [idx * PIN_PITCH for _, idx in numbered_positions]
     center = (min(raw) + max(raw)) / 2
-    y = -D/2 + PIN_ROW_FROM_EDGE
+    y = row_side * (D/2 - PIN_ROW_FROM_EDGE)
     shapes = []
     for pin_no, idx in numbered_positions:
         x = idx * PIN_PITCH - center
@@ -46,7 +46,7 @@ def make_pins(D, numbered_positions):
         shapes.append(p.val())
     return cq.Compound.makeCompound(shapes)
 
-def add_markings(assy, L, D, top_z, part_text):
+def add_markings(assy, L, D, top_z, part_text, row_side=-1):
     rows = [
         ("MORNSUN", 0.28*D, min(1.35, L/7.0)),
         (part_text, 0.02*D, min(1.05, L/9.0)),
@@ -67,7 +67,7 @@ def add_markings(assy, L, D, top_z, part_text):
         dot = (
             cq.Workplane("XY")
             .workplane(offset=top_z)
-            .center(-L/2 + 1.10, -D/2 + 1.15)
+            .center(-L/2 + 1.10, row_side * (D/2 - 1.15))
             .circle(0.22)
             .extrude(0.020)
         )
@@ -75,24 +75,26 @@ def add_markings(assy, L, D, top_z, part_text):
     except Exception:
         pass
 
-def build(name, L, D, H, pin_positions, marked):
+def build(name, L, D, H, pin_positions, marked, row_side=-1):
     a = cq.Assembly(name=name.replace("-", "_"))
     a.add(make_body(L, D, H), name="BLACK_CASE", color=BLACK)
-    a.add(make_pins(D, pin_positions), name="PINS", color=PIN_COLOR)
+    a.add(make_pins(D, pin_positions, row_side), name="PINS", color=PIN_COLOR)
     if marked:
-        add_markings(a, L, D, BODY_STANDOFF + H, name)
+        add_markings(a, L, D, BODY_STANDOFF + H, name, row_side)
     return a
 
 def main():
     out = ROOT / "generated" / "MORNSUN_B_S_WR3"
     variants = [
-        ("B1212S-1WR3", 11.60, 6.00, 10.16, [(1,0),(2,1),(3,2),(4,3)]),
-        ("B1212S-2WR3", 19.65, 7.05, 10.16, [(1,0),(2,1),(4,3),(6,5)]),
+        # 1WR3 keeps the original row side.
+        ("B1212S-1WR3", 11.60, 6.00, 10.16, [(1,0),(2,1),(3,2),(4,3)], -1),
+        # 2WR3 is mirrored to the opposite long edge to match the real part/front-view orientation.
+        ("B1212S-2WR3", 19.65, 7.05, 10.16, [(1,0),(2,1),(4,3),(6,5)], +1),
     ]
-    for name, L, D, H, pins in variants:
+    for name, L, D, H, pins, row_side in variants:
         for marked, suffix in [(True, "REALISTIC"), (False, "CLEAN")]:
             p = out / f"{name}_{suffix}.step"
-            print(p, export_step(build(name, L, D, H, pins, marked), p))
+            print(p, export_step(build(name, L, D, H, pins, marked, row_side), p))
 
 if __name__ == "__main__":
     main()
