@@ -31,3 +31,19 @@
 - 1WR3 keeps its previous orientation (row_side = -1).
 - Pin grid/pitch and package dimensions are unchanged; this is an orientation correction only.
 
+
+
+## 2026-10-03 — MORNSUN B_S WR3 pin-position correction
+
+### B1212S-2WR3
+- Official MORNSUN mechanical drawing checked.
+- Single-output pin numbers: 1, 2, 4, 6.
+- Grid: 2.54 mm.
+- Pin 1 center starts 2.21 mm nominal from the left body edge.
+- Correct pin spacings: 1→2 = 2.54 mm, 2→4 = 5.08 mm, 4→6 = 5.08 mm, 1→6 = 12.70 mm.
+- Important: the 2WR3 pin group is **not centered** in the 19.65 mm body. Previous centered generator geometry was wrong.
+- Pin row offset from long package edge remains 0.90 mm.
+- Canonical baseline becomes regenerated B1212S-2WR3 after commit ec8a9d1.
+
+### B1212S-1WR3
+- Official drawing confirms pin 1 edge offset 1.99 mm; with 7.62 mm span inside 11.60 mm body this row is centered as expected.
