@@ -90,3 +90,11 @@
 - Theo drawing: mating post 7.70 mm, wafer/body theo trục pin 3.20 mm, solder tail 3.70 mm, tổng từ PCB tới đỉnh post 10.90 mm.
 - Main depth 8.50 mm, overall lock-side depth xấp xỉ 9.40 mm, pin-row 2.00 mm từ lock/front side.
 - Áp dụng 2P..10P, 10 màu. Canonical mới: V6_STANDARD_TOP.
+
+## 2026-10-04 — VH3.96 full-width top ear added
+
+- User pointed out the missing upper locking ear/shelf visible in JST VH catalog page 3 side view.
+- V7 adds a full-width top ear across dimension B, projecting toward latch/front side, plus a small hooked leading lip.
+- Pin pitch, pin-row position and all X pin centers are unchanged from V6.
+- Ear dimensions are visual approximations because page 3 does not separately dimension this molded feature.
+- Canonical visual model: V7_TOP_EAR_FIXED.
