@@ -9,6 +9,8 @@ PIN_SQ=0.64
 TAIL=3.20
 POST_TOP=5.65
 FLOOR_H=1.35
+PIN_ROW_FROM_REAR_EDGE=2.35
+PIN_ROW_Y=BODY_D/2-PIN_ROW_FROM_REAR_EDGE  # +0.55 mm for BODY_D=5.80
 
 def body_len(n):
     return 7.50 + (n-2)*PITCH
@@ -48,7 +50,7 @@ def make_pins(n):
     solids=[]
     for i in range(n):
         x=(i-(n-1)/2)*PITCH
-        p=cq.Workplane("XY").box(PIN_SQ,PIN_SQ,POST_TOP+TAIL,centered=(True,True,False)).translate((x,0,-TAIL))
+        p=cq.Workplane("XY").box(PIN_SQ,PIN_SQ,POST_TOP+TAIL,centered=(True,True,False)).translate((x,PIN_ROW_Y,-TAIL))
         solids.append(p.val())
     return cq.Compound.makeCompound(solids)
 
