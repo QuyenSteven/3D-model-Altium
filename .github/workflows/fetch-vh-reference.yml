@@ -1,0 +1,38 @@
+name: Fetch LCSC VH reference model
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_lcsc_reference.py"
+      - ".github/workflows/fetch-vh-reference.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Fetch original EasyEDA STEP for C5379868
+        run: |
+          python scripts/fetch_lcsc_reference.py C5379868 reference_models/VH3.96/C5379868_SHOU_HAN_VH3.96-2P_ZZ.step
+      - name: Commit reference model
+        run: |
+          git config user.name "3D Model Altium Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reference_models/VH3.96
+          if git diff --cached --quiet; then
+            echo "No reference-model changes."
+          else
+            git commit -m "reference: fetch original EasyEDA STEP for C5379868"
+            git pull --rebase origin main
+            git push origin main
+          fi
