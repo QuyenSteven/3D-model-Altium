@@ -53,6 +53,7 @@ jobs:
             python scripts/analyze_step.py "$STEP" "$META"
             if [ "$PINS" = "4" ]; then
               python scripts/section_step.py "$STEP" "reference_models/VH3.96/SHOU_HAN/VH3.96-4P_ZZ_C5379870.section_yz.json" 0
+              python scripts/section_step.py "$STEP" "reference_models/VH3.96/SHOU_HAN/VH3.96-4P_ZZ_C5379870.pin_section_yz.json" 1.98
             fi
           done
 
