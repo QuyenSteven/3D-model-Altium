@@ -7,6 +7,7 @@ on:
     paths:
       - "scripts/fetch_lcsc_reference.py"
       - "scripts/analyze_step.py"
+      - "scripts/section_step.py"
       - ".github/workflows/fetch-vh-reference.yml"
 
 permissions:
@@ -50,6 +51,9 @@ jobs:
             META="reference_models/VH3.96/SHOU_HAN/VH3.96-${PINS}P_ZZ_${ID}.analysis.json"
             python scripts/fetch_lcsc_reference.py "$ID" "$STEP"
             python scripts/analyze_step.py "$STEP" "$META"
+            if [ "$PINS" = "4" ]; then
+              python scripts/section_step.py "$STEP" "reference_models/VH3.96/SHOU_HAN/VH3.96-4P_ZZ_C5379870.section_yz.json" 0
+            fi
           done
 
       - name: Commit reference models
