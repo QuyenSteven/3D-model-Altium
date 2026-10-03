@@ -24,7 +24,7 @@
 
 ### VH3.96 visual/color samples
 - 2P WHITE / BROWN / GRAY / PURPLE V3 FIXED are committed under `models/Connectors/VH3.96/samples/`.
-- Full 2P..10P × 10 colors is generated deterministically by `generators/generate_vh396.py`.
+- Full 2P..10P × 10 colors is generated deterministically by `generators/generate_vh396.py` (canonical V4_LOCKSIDE_FIXED).
 - Full variant table: `models/Connectors/VH3.96/MANIFEST_V3.csv`.
 
 ## Generator-backed families
