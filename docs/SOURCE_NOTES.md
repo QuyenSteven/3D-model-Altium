@@ -13,6 +13,7 @@ Các model trong repo được dựng từ mechanical drawing / datasheet / ản
 ## XH2.54
 - Generic clone-style 2.54 mm system used by the user.
 - Do not replace with official JST XH 2.50 mm dimensions unless explicitly requested.
+- Pin row is intentionally offset in housing depth: for the 5.80 mm clone body, use Y=+0.55 mm from body center, corresponding to 2.35 mm from the rear/plain edge. This follows the XH top-entry mechanical relationship rather than centering the pins.
 
 ## VH3.96
 - JST VH-style top-entry geometry, pitch 3.96 mm.
