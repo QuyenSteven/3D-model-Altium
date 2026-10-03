@@ -72,3 +72,11 @@
 - Giữ nguyên pitch X = 3.96 mm và toàn bộ vị trí X theo số chân.
 - Áp dụng 2P..10P, 10 màu; canonical mới: V4_LOCKSIDE_FIXED.
 - Generator xóa generated/VH3.96 cũ trước khi regenerate để tránh lẫn version stale.
+
+## 2026-10-03 — VH3.96 housing rebuilt to XH-style architecture
+
+- User reference image confirms the real VH3.96 header should visually match the XH2.54 molded housing family, scaled up for 3.96 mm pitch.
+- Previous V4 housing geometry had an exaggerated latch/roof and is deprecated.
+- Canonical housing now uses the same architecture as XH: floor, rear wall, side walls, lower front wall, guide shoulders, compact latch/key.
+- Kept PCB-critical values: pitch 3.96 mm, body depth 9.40 mm, body height 8.50 mm, pin square 1.14 mm, pin row Y=-1.40 mm toward latch/front.
+- Canonical new version: V5_XHSTYLE for 2P..10P, 10 colors.
