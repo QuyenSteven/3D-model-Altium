@@ -1,5 +1,6 @@
 import cadquery as cq
 from pathlib import Path
+import shutil
 from common import ROOT, COLORS, export_step
 
 PITCH=2.54
@@ -9,8 +10,8 @@ PIN_SQ=0.64
 TAIL=3.20
 POST_TOP=5.65
 FLOOR_H=1.35
-PIN_ROW_FROM_REAR_EDGE=2.35
-PIN_ROW_Y=BODY_D/2-PIN_ROW_FROM_REAR_EDGE  # +0.55 mm for BODY_D=5.80
+PIN_ROW_FROM_LOCK_EDGE=2.35
+PIN_ROW_Y=-BODY_D/2+PIN_ROW_FROM_LOCK_EDGE  # -0.55 mm: toward latch/lock side
 
 def body_len(n):
     return 7.50 + (n-2)*PITCH
@@ -56,13 +57,15 @@ def make_pins(n):
 
 def main():
     out=ROOT/"generated"/"XH2.54"
+    if out.exists():
+        shutil.rmtree(out)
     for color,rgb in COLORS.items():
         for n in range(2,11):
             body,L=make_housing(n); pins=make_pins(n)
             a=cq.Assembly(name=f"XH2_54_{n}P_{color}")
             a.add(body,name="HOUSING",color=cq.Color(*rgb))
             a.add(pins,name=f"PINS_{n}",color=cq.Color(0.74,0.74,0.77))
-            p=out/color/f"XH2.54_{n}P_{color}_V3_FIXED.step"
+            p=out/color/f"XH2.54_{n}P_{color}_V5_LOCKSIDE_FIXED.step"
             print(p, export_step(a,p))
 
 if __name__=="__main__":
