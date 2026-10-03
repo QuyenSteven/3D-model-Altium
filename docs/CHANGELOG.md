@@ -47,3 +47,11 @@
 
 ### B1212S-1WR3
 - Official drawing confirms pin 1 edge offset 1.99 mm; with 7.62 mm span inside 11.60 mm body this row is centered as expected.
+
+## 2026-10-03 — XH2.54 pin-row correction
+
+- Rà lại XH2.54 top-entry header: hàng chân không nằm đúng tâm theo chiều sâu housing.
+- Giữ nguyên pitch 2.54 mm và vị trí X của các pin.
+- Với body depth 5.80 mm, đặt pin-row Y = +0.55 mm, tương đương cách rear/plain edge 2.35 mm.
+- Áp dụng cho toàn bộ 2P..10P và 10 màu.
+- Không thay đổi body envelope, màu, hoặc pitch.
