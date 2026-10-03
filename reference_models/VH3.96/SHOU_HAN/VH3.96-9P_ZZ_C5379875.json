@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C5379875",
+  "uuid": "315cd6584c2543d1886bebc11983371a",
+  "title": "CONN-TH_9P-P3.96_HX-VH3.96-9P-ZZ",
+  "source_api": "https://easyeda.com/api/products/C5379875/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/315cd6584c2543d1886bebc11983371a",
+  "easyeda_transform": {
+    "origin": "4017.862,2998.8228",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_9P-P3.96_HX-VH3.96-9P-ZZ"
+}

@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C5379873",
+  "uuid": "fb7d60493ef14ea48dc91f912b9994c1",
+  "title": "CONN-TH_7P-P3.96_VH3.96-7A",
+  "source_api": "https://easyeda.com/api/products/C5379873/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/fb7d60493ef14ea48dc91f912b9994c1",
+  "easyeda_transform": {
+    "origin": "400.295,317.3622",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_7P-P3.96_VH3.96-7A"
+}

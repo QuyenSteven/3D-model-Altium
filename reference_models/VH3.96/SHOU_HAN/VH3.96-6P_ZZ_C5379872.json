@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C5379872",
+  "uuid": "41ddaab25c614de4a8758f05bbee4a8f",
+  "title": "CONN-TH_6P-P3.96_VH3.96-6P-ZZ",
+  "source_api": "https://easyeda.com/api/products/C5379872/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/41ddaab25c614de4a8758f05bbee4a8f",
+  "easyeda_transform": {
+    "origin": "3997.2047,2966.4764",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_6P-P3.96_VH3.96-6P-ZZ"
+}

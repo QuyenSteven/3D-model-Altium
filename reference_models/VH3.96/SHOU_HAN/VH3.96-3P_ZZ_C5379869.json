@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C5379869",
+  "uuid": "a1bb3e6983414d3d9697173c2610b60e",
+  "title": "CONN-TH_3P-P3.96_FWF39601-S03S22W1B",
+  "source_api": "https://easyeda.com/api/products/C5379869/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/a1bb3e6983414d3d9697173c2610b60e",
+  "easyeda_transform": {
+    "origin": "3999.9997,2984.4491",
+    "rotation": "0,0,0",
+    "z": "-14.1732"
+  },
+  "package_title": "CONN-TH_3P-P3.96_FWF39601-S03S22W1B"
+}

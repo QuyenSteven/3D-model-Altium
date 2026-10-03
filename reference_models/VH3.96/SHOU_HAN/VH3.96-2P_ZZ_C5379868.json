@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C5379868",
+  "uuid": "324c2ae764a04d5b98ce0c7a55f4ad64",
+  "title": "CONN-TH_2P-P3.96_C9900035759",
+  "source_api": "https://easyeda.com/api/products/C5379868/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/324c2ae764a04d5b98ce0c7a55f4ad64",
+  "easyeda_transform": {
+    "origin": "3999.7045,3005.4802",
+    "rotation": "0,0,0",
+    "z": "-11.811"
+  },
+  "package_title": "CONN-TH_2P-P3.96_C9900035759"
+}
