@@ -55,3 +55,11 @@
 - Với body depth 5.80 mm, đặt pin-row Y = +0.55 mm, tương đương cách rear/plain edge 2.35 mm.
 - Áp dụng cho toàn bộ 2P..10P và 10 màu.
 - Không thay đổi body envelope, màu, hoặc pitch.
+
+## 2026-10-03 — XH2.54 latch-side pin-row correction
+
+- V4 đặt pin-row lệch đúng độ lớn nhưng **sai phía**: gần lưng kín.
+- Housing generator quy ước latch/front ở Y âm, nên pin-row đúng phải là Y = -0.55 mm.
+- Giữ khoảng cách từ latch/front edge đến pin-row = 2.35 mm với body depth 5.80 mm.
+- Áp dụng toàn bộ 2P..10P, 10 màu; canonical mới: V5_LOCKSIDE_FIXED.
+- Generator xóa thư mục generated/XH2.54 cũ trước khi regenerate để tránh lẫn version stale.
