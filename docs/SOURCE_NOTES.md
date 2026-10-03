@@ -37,3 +37,10 @@ Các model trong repo được dựng từ mechanical drawing / datasheet / ản
 - Product pages: B1212S-1WR3 and B1212S-2WR3 from MORNSUN.
 - Datasheet dimensions used: B_S-1WR3 = 11.60 x 6.00 x 10.16 mm; B_S-2WR3 = 19.65 x 7.05 x 10.16 mm.
 - Recommended layout is on a 2.54 mm grid. B_S-2WR3 single-output pin set is 1,2,4,6.
+
+## JST VH3.96 standard top-entry header
+- Official source: JST VH catalog eVH.pdf, page 3: https://www.jst-mfg.com/product/pdf/eng/eVH.pdf
+- Standard top-entry family: B2P-VH ... B10P-VH.
+- Critical: pitch 3.96 mm; A=(N-1)*3.96; B=A+3.90; square post 1.14 mm.
+- Current active geometry uses mating contact 7.70 mm, solder post 3.70 mm, overall contact 14.60 mm; embedded/wafer pin-axis thickness = 3.20 mm.
+- Do not model this family as XH-style shrouded housing. It is a standard locking header with exposed posts.
