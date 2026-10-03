@@ -16,9 +16,11 @@
 - `models/Connectors/SFP/U77-A1113-X0LX.step`
 
 ### XH2.54 visual/color samples
-- 2P WHITE / BROWN / GRAY / PURPLE V3 FIXED are committed under `models/Connectors/XH2.54/samples/`.
-- Full 2P..10P × 10 colors is generated deterministically by `generators/generate_xh254.py`.
-- Full variant table: `models/Connectors/XH2.54/MANIFEST_V3.csv`.
+- Canonical generator: `generators/generate_xh254.py`.
+- Canonical geometry: **V5_LOCKSIDE_FIXED**.
+- Pin row is offset **toward the latch/front side**, not toward the closed rear wall.
+- 2P..10P × 10 colors are generated under `generated/XH2.54/`.
+- Full variant table: `models/Connectors/XH2.54/MANIFEST_V3.csv` (legacy manifest; generator is source of truth).
 
 ### VH3.96 visual/color samples
 - 2P WHITE / BROWN / GRAY / PURPLE V3 FIXED are committed under `models/Connectors/VH3.96/samples/`.
