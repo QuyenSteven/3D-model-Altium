@@ -63,3 +63,12 @@
 - Giữ khoảng cách từ latch/front edge đến pin-row = 2.35 mm với body depth 5.80 mm.
 - Áp dụng toàn bộ 2P..10P, 10 màu; canonical mới: V5_LOCKSIDE_FIXED.
 - Generator xóa thư mục generated/XH2.54 cũ trước khi regenerate để tránh lẫn version stale.
+
+## 2026-10-03 — VH3.96 pin-row / latch-side correction
+
+- Rà lại BxP-VH top-entry theo JST drawing + footprint reference: hàng chân không nằm giữa theo chiều sâu housing.
+- Trong quy ước generator, latch/front ở Y âm; pin-row canonical chuyển sang Y = -1.40 mm.
+- Lý do: footprint B2P-VH chuẩn thể hiện main body từ Y=-2.0 đến +4.8 mm, latch protrusion tới Y=-3.7 mm; pad row ở Y=0 nên rõ ràng gần phía khóa hơn phía lưng.
+- Giữ nguyên pitch X = 3.96 mm và toàn bộ vị trí X theo số chân.
+- Áp dụng 2P..10P, 10 màu; canonical mới: V4_LOCKSIDE_FIXED.
+- Generator xóa generated/VH3.96 cũ trước khi regenerate để tránh lẫn version stale.
