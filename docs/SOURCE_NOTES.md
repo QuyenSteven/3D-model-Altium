@@ -44,3 +44,16 @@ Các model trong repo được dựng từ mechanical drawing / datasheet / ản
 - Critical: pitch 3.96 mm; A=(N-1)*3.96; B=A+3.90; square post 1.14 mm.
 - Current active geometry uses mating contact 7.70 mm, solder post 3.70 mm, overall contact 14.60 mm; embedded/wafer pin-axis thickness = 3.20 mm.
 - Do not model this family as XH-style shrouded housing. It is a standard locking header with exposed posts.
+
+## VH3.96 exact clone reference
+
+Primary reference family:
+- SHOU HAN VH3.96-2P ZZ: LCSC C5379868
+- 3P..10P sequence: C5379869..C5379876
+- Exact EasyEDA STEP files are stored under `reference_models/VH3.96/SHOU_HAN/`.
+- Product reference supplied by user: https://www.lcsc.com/product-detail/C5379868.html
+- Additional shape references supplied by user:
+  - https://grabcad.com/library/vh-3-96-female-connector-1/files?folder_id=13982624
+  - https://grabcad.com/library/vh3-96-li-3-2p-1
+
+For colored generated models, use the exact C5379870-derived side profile and pin section rather than re-inventing the lock geometry.
