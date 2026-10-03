@@ -106,3 +106,13 @@
 - Rebuilt the lock as a compact vertical support + shorter/thicker upper tongue + small front nose, while preserving all PCB-critical pin geometry.
 - Preserved: pitch 3.96 mm, pin square 1.14 mm, pin row toward latch side, B=(N-1)*3.96+3.90 mm.
 - Canonical visual baseline is now V8_PROPORTION_TUNED.
+
+## 2026-10-04 — VH3.96 V9 exact-reference rebuild
+
+- Dừng sử dụng các shape V6/V7/V8 đoán tay cho VH3.96.
+- User cung cấp GrabCAD references và exact LCSC part C5379868; repo đã fetch nguyên bản EasyEDA STEP cho SHOU HAN VH3.96 2P..10P (C5379868..C5379876).
+- Dùng C5379870 (4P) làm reference sạch để trích center YZ plastic profile và pin-center section.
+- Exact observed family bboxes: 4P 15.84 × 8.20 × 13.60 mm; 5P 19.80 × 8.20 × 13.60 mm; 9P 35.64 × 8.20 × 13.60 mm; 10P 39.60 × 8.20 × 13.60 mm.
+- Pin exact section: row center Y=+1.35 mm; full square ≈1.13 mm; tapered tip ≈0.53 mm; Z=-3.50..10.10 mm.
+- Plastic center profile is copied directly from C5379870 section; generator canonical is now V9_EXACT_PROFILE.
+- V6/V7/V8 are historical only and must not be used as baseline.
