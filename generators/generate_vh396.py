@@ -32,6 +32,21 @@ def make_housing(n):
     # Main low wafer: this is NOT an XH-style shrouded housing.
     h = box(B, MAIN_DEPTH, BODY_Z)
 
+    # Full-width upper locking ear / shelf visible in JST VH page-3 side view.
+    # It spans the whole connector width (B) and projects toward the latch/front side.
+    EAR_T = 0.72
+    EAR_DEPTH = 5.20
+    EAR_Y = -MAIN_DEPTH/2 + EAR_DEPTH/2 - 0.15
+    ear = box(B, EAR_DEPTH, EAR_T, y=EAR_Y, z=BODY_Z)
+    h = h.union(ear)
+
+    # Small leading lip on the ear to match the hooked profile in side view.
+    LIP_DEPTH = 0.70
+    lip = box(B, LIP_DEPTH, 0.34,
+              y=-MAIN_DEPTH/2 + LIP_DEPTH/2 - 0.18,
+              z=BODY_Z + EAR_T)
+    h = h.union(lip)
+
     # Small molding chamfer
     try:
         h = h.edges("|Z").fillet(0.10)
@@ -51,6 +66,7 @@ def make_housing(n):
     h = h.union(tongue)
 
     # upper locking ramp, approximated as a short cap
+    # Central locking web under the full-width ear.
     ramp = box(
         latch_w * 0.78, 1.30, 0.55,
         y=-(MAIN_DEPTH/2 + 0.38),
@@ -106,7 +122,7 @@ def main():
             a=cq.Assembly(name=f"VH3_96_{n}P_{color}_V6")
             a.add(body,name="WAFER",color=cq.Color(*rgb))
             a.add(pins,name=f"PINS_{n}",color=cq.Color(0.74,0.74,0.77))
-            p=out/color/f"VH3.96_{n}P_{color}_V6_STANDARD_TOP.step"
+            p=out/color/f"VH3.96_{n}P_{color}_V7_TOP_EAR_FIXED.step"
             print(p, export_step(a,p))
 
 if __name__=="__main__":
