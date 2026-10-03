@@ -80,3 +80,13 @@
 - Canonical housing now uses the same architecture as XH: floor, rear wall, side walls, lower front wall, guide shoulders, compact latch/key.
 - Kept PCB-critical values: pitch 3.96 mm, body depth 9.40 mm, body height 8.50 mm, pin square 1.14 mm, pin row Y=-1.40 mm toward latch/front.
 - Canonical new version: V5_XHSTYLE for 2P..10P, 10 colors.
+
+## 2026-10-03 — VH3.96 rebuilt from JST page 3
+
+- Các bản VH V3/V4/V5 trước sai kiến trúc housing: đã dựng giống XH/shrouded body.
+- User cung cấp ảnh thực tế và catalog JST eVH.pdf trang 3; canonical family là standard top-entry B2P-VH ... B10P-VH.
+- Rebuild V6_STANDARD_TOP với wafer thấp và post vuông xuyên qua wafer, đúng kiểu linh kiện thật.
+- Kích thước PCB-critical: pitch 3.96 mm, post 1.14 mm, B = A + 3.90 mm, A=(N-1)*3.96.
+- Theo drawing: mating post 7.70 mm, wafer/body theo trục pin 3.20 mm, solder tail 3.70 mm, tổng từ PCB tới đỉnh post 10.90 mm.
+- Main depth 8.50 mm, overall lock-side depth xấp xỉ 9.40 mm, pin-row 2.00 mm từ lock/front side.
+- Áp dụng 2P..10P, 10 màu. Canonical mới: V6_STANDARD_TOP.
