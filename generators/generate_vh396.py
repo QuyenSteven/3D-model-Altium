@@ -1,4 +1,5 @@
 import cadquery as cq
+import shutil
 from common import ROOT, COLORS, export_step
 
 PITCH=3.96
@@ -8,6 +9,7 @@ PIN_SQ=1.14
 TAIL=3.20
 POST_TOP=7.70
 FLOOR_H=1.55
+PIN_ROW_Y=-1.40  # toward latch/front side; official B2P-VH fab relation is 2.0 mm front vs 4.8 mm rear
 
 def body_len(n):
     return (n-1)*PITCH + 3.90
@@ -45,19 +47,21 @@ def make_pins(n):
     solids=[]
     for i in range(n):
         x=(i-(n-1)/2)*PITCH
-        p=cq.Workplane("XY").box(PIN_SQ,PIN_SQ,POST_TOP+TAIL,centered=(True,True,False)).translate((x,0,-TAIL))
+        p=cq.Workplane("XY").box(PIN_SQ,PIN_SQ,POST_TOP+TAIL,centered=(True,True,False)).translate((x,PIN_ROW_Y,-TAIL))
         solids.append(p.val())
     return cq.Compound.makeCompound(solids)
 
 def main():
     out=ROOT/"generated"/"VH3.96"
+    if out.exists():
+        shutil.rmtree(out)
     for color,rgb in COLORS.items():
         for n in range(2,11):
             body,L=make_housing(n); pins=make_pins(n)
             a=cq.Assembly(name=f"VH3_96_{n}P_{color}")
             a.add(body,name="HOUSING",color=cq.Color(*rgb))
             a.add(pins,name=f"PINS_{n}",color=cq.Color(0.74,0.74,0.77))
-            p=out/color/f"VH3.96_{n}P_{color}_V3_FIXED.step"
+            p=out/color/f"VH3.96_{n}P_{color}_V4_LOCKSIDE_FIXED.step"
             print(p, export_step(a,p))
 
 if __name__=="__main__":
