@@ -98,3 +98,11 @@
 - Pin pitch, pin-row position and all X pin centers are unchanged from V6.
 - Ear dimensions are visual approximations because page 3 does not separately dimension this molded feature.
 - Canonical visual model: V7_TOP_EAR_FIXED.
+
+## 2026-10-04 — VH3.96 V8 proportion tuning
+
+- User compared V6/V7 against a real BxP-VH photo and asked to prioritize visual proportion of the plastic lock rather than exact lock dimensions.
+- V7 full-width thin ear looked too large/flat.
+- Rebuilt the lock as a compact vertical support + shorter/thicker upper tongue + small front nose, while preserving all PCB-critical pin geometry.
+- Preserved: pitch 3.96 mm, pin square 1.14 mm, pin row toward latch side, B=(N-1)*3.96+3.90 mm.
+- Canonical visual baseline is now V8_PROPORTION_TUNED.
