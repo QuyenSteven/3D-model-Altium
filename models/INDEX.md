@@ -51,3 +51,11 @@ If a generated variant becomes a production-critical model, copy that exact STEP
 - `generated/MORNSUN_B_S_WR3/B1212S-1WR3_CLEAN.step`
 - `generated/MORNSUN_B_S_WR3/B1212S-2WR3_REALISTIC.step`
 - `generated/MORNSUN_B_S_WR3/B1212S-2WR3_CLEAN.step`
+
+## VH3.96 current canonical
+
+- Canonical generated family: `V9_EXACT_PROFILE`.
+- Source-of-truth exact reference files: `reference_models/VH3.96/SHOU_HAN/`.
+- Parametric generator: `generators/generate_vh396.py`.
+- The generator is based on exact C5379870 center YZ plastic profile and pin-center section.
+- V6/V7/V8 are obsolete and retained only as history.
