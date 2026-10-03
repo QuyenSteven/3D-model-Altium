@@ -50,5 +50,7 @@ jobs:
             echo "No generated changes."
           else
             git commit -m "build: regenerate STEP library [skip ci]"
+            git fetch origin main
+            git rebase origin/main
             git push
           fi
