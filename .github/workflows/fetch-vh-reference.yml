@@ -1,4 +1,4 @@
-name: Fetch LCSC VH reference model
+name: Fetch LCSC VH reference models
 
 on:
   workflow_dispatch:
@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "scripts/fetch_lcsc_reference.py"
+      - "scripts/analyze_step.py"
       - ".github/workflows/fetch-vh-reference.yml"
 
 permissions:
@@ -18,13 +19,40 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Fetch original EasyEDA STEP for C5379868
+
+      - name: Install CadQuery for validation
         run: |
-          python scripts/fetch_lcsc_reference.py C5379868 reference_models/VH3.96/C5379868_SHOU_HAN_VH3.96-2P_ZZ.step
-      - name: Commit reference model
+          python -m pip install --upgrade pip
+          pip install "cadquery>=2.5"
+
+      - name: Fetch original EasyEDA STEP family
+        run: |
+          set -e
+          for spec in \
+            "2 C5379868" \
+            "3 C5379869" \
+            "4 C5379870" \
+            "5 C5379871" \
+            "6 C5379872" \
+            "7 C5379873" \
+            "8 C5379874" \
+            "9 C5379875" \
+            "10 C5379876"
+          do
+            set -- $spec
+            PINS=$1
+            ID=$2
+            STEP="reference_models/VH3.96/SHOU_HAN/VH3.96-${PINS}P_ZZ_${ID}.step"
+            META="reference_models/VH3.96/SHOU_HAN/VH3.96-${PINS}P_ZZ_${ID}.analysis.json"
+            python scripts/fetch_lcsc_reference.py "$ID" "$STEP"
+            python scripts/analyze_step.py "$STEP" "$META"
+          done
+
+      - name: Commit reference models
         run: |
           git config user.name "3D Model Altium Bot"
           git config user.email "actions@users.noreply.github.com"
@@ -32,7 +60,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No reference-model changes."
           else
-            git commit -m "reference: fetch original EasyEDA STEP for C5379868"
+            git commit -m "reference: fetch exact SHOU HAN VH3.96 STEP family"
             git pull --rebase origin main
             git push origin main
           fi
