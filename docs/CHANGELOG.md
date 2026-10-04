@@ -126,3 +126,10 @@
 - Adjacent pitch inside each 4-pin group is 2.54 mm; center gap between pins 4 and 6 is 9.50 mm.
 - Pin row is 0.64 mm from the front package edge; pin section modeled as 0.70 x 0.70 mm; tail length 4.10 mm.
 - CLEAN and REALISTIC variants generated for both 5 V-input and 12 V-input families.
+
+## 2026-10-04 — NENGWI QDX pin-span override
+
+- User corrected the physical pin layout for QDX05/QDX12: Pin1-to-Pin9 center span = 27.74 mm across a 30.00 mm body.
+- This intentionally differs from the supplied datasheet drawing, which visually shows 24.74 mm and 2.63 mm edge offset.
+- Canonical user-target geometry now uses edge-to-Pin1 = 1.13 mm, within-group pitch = 2.54 mm, and Pin4-to-Pin6 center gap = 12.50 mm.
+- Applies to both QDX05GXXXX-B and QDX12GXXXX-B.
