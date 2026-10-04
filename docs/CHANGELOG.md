@@ -116,3 +116,13 @@
 - Pin exact section: row center Y=+1.35 mm; full square ≈1.13 mm; tapered tip ≈0.53 mm; Z=-3.50..10.10 mm.
 - Plastic center profile is copied directly from C5379870 section; generator canonical is now V9_EXACT_PROFILE.
 - V6/V7/V8 are historical only and must not be used as baseline.
+
+## 2026-10-04 — NENGWI QDX05GXXXX-B / QDX12GXXXX-B
+
+- Added generator for the two user-supplied dual isolated gate-driver module families.
+- Both supplied V1.3 mechanical drawings use the same package geometry: 30 x 15 x 12 mm.
+- Physical pins are 1,2,3,4,6,7,8,9; pin 5 is intentionally absent.
+- Pin 1 center is 2.63 mm from the left case edge; pin 1 to pin 9 span is 24.74 mm.
+- Adjacent pitch inside each 4-pin group is 2.54 mm; center gap between pins 4 and 6 is 9.50 mm.
+- Pin row is 0.64 mm from the front package edge; pin section modeled as 0.70 x 0.70 mm; tail length 4.10 mm.
+- CLEAN and REALISTIC variants generated for both 5 V-input and 12 V-input families.
