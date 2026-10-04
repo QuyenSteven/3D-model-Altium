@@ -8,6 +8,7 @@ on:
       - ".github/workflows/fetch-hlk10m-reference.yml"
       - "scripts/fetch_lcsc_reference.py"
       - "scripts/analyze_step.py"
+      - "scripts/section_step_xy.py"
 
 permissions:
   contents: write
@@ -30,6 +31,8 @@ jobs:
         run: |
           python scripts/fetch_lcsc_reference.py C403746 reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step
           python scripts/analyze_step.py reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.analysis.json
+          python scripts/section_step_xy.py reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step reference_models/HI_LINK/HLK-10M/C403746_z-15.section_xy.json -15
+          python scripts/section_step_xy.py reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step reference_models/HI_LINK/HLK-10M/C403746_z-11.section_xy.json -11
       - name: Commit reference
         run: |
           git config user.name "3D Model Altium Bot"
