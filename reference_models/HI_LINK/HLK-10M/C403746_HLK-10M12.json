@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C403746",
+  "uuid": "fa43459b34c04d4cb2bb8c55052c8848",
+  "title": "PWRM-TH_HLK-10M12",
+  "source_api": "https://easyeda.com/api/products/C403746/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/fa43459b34c04d4cb2bb8c55052c8848",
+  "easyeda_transform": {
+    "origin": "4092.3229,2945.2756",
+    "rotation": "0,0,0",
+    "z": "-19.685"
+  },
+  "package_title": "PWRM-TH_HLK-10M12"
+}
