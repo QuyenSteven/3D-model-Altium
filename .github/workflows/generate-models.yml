@@ -40,6 +40,7 @@ jobs:
           python generators/generate_cbb.py
           python generators/generate_sfp_u77.py
           python generators/generate_mornsun_b_s_wr3.py
+          python generators/generate_nengwi_qdx.py
 
       - name: Commit generated library
         run: |
