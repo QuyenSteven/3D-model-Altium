@@ -1,0 +1,44 @@
+name: Fetch HLK-10M reference STEP
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fetch-hlk10m-reference.yml"
+      - "scripts/fetch_lcsc_reference.py"
+      - "scripts/analyze_step.py"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install CadQuery
+        run: |
+          python -m pip install --upgrade pip
+          pip install "cadquery>=2.5"
+      - name: Fetch C403746 exact EasyEDA STEP
+        run: |
+          python scripts/fetch_lcsc_reference.py C403746 reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step
+          python scripts/analyze_step.py reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.step reference_models/HI_LINK/HLK-10M/C403746_HLK-10M12.analysis.json
+      - name: Commit reference
+        run: |
+          git config user.name "3D Model Altium Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reference_models/HI_LINK/HLK-10M
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "reference: add exact HLK-10M12 EasyEDA STEP"
+            git pull --rebase origin main
+            git push origin main
+          fi
