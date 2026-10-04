@@ -133,3 +133,4 @@
 - This intentionally differs from the supplied datasheet drawing, which visually shows 24.74 mm and 2.63 mm edge offset.
 - Canonical user-target geometry now uses edge-to-Pin1 = 1.13 mm, within-group pitch = 2.54 mm, and Pin4-to-Pin6 center gap = 12.50 mm.
 - Applies to both QDX05GXXXX-B and QDX12GXXXX-B.
+\n## 2026-10-04 — HI-LINK HLK-10M 10W series\n\n- Added HLK-10M03 / 05 / 09 / 12 / 15 / 24 STEP generator.\n- Mechanical envelope: 46.9 x 27.8 x 21.8 mm.\n- Exact pin centers and 0.8 mm square pin section were extracted from the EasyEDA STEP for LCSC C403746 (HLK-10M12): P1/P2 at X=-21.25,Y=±3.90; P3/P4 at X=+21.25,Y=±11.40 mm.\n- PCB plane is body bottom Z=0; tail length 5.02 mm.\n- Same package geometry is reused across the six voltage variants; marking changes by model.\n
