@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475127",
+  "uuid": "3159c6700b414bcba972ba4791ddaadc",
+  "title": "CONN-TH_5P-P2.54_KF141R-2.54-5P",
+  "source_api": "https://easyeda.com/api/products/C475127/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/3159c6700b414bcba972ba4791ddaadc",
+  "easyeda_transform": {
+    "origin": "4021.8962,3010.9449",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_5P-P2.54_KF141R-2.54-5P"
+}

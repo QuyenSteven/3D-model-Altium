@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475124",
+  "uuid": "77048dbe13e6438887163feeb35c2b76",
+  "title": "CONN-TH_2P-P2.54_KF141R-2.54-2P",
+  "source_api": "https://easyeda.com/api/products/C475124/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/77048dbe13e6438887163feeb35c2b76",
+  "easyeda_transform": {
+    "origin": "4006.8962,3010.9449",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_2P-P2.54_KF141R-2.54-2P"
+}

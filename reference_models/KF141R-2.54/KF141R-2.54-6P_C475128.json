@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475128",
+  "uuid": "c5d7fc8806d840c3848c9f5310166f0a",
+  "title": "CONN-TH_6P-P2.54_KF141R-2.54-6P",
+  "source_api": "https://easyeda.com/api/products/C475128/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/c5d7fc8806d840c3848c9f5310166f0a",
+  "easyeda_transform": {
+    "origin": "4026.8962,3010.9449",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_6P-P2.54_KF141R-2.54-6P"
+}

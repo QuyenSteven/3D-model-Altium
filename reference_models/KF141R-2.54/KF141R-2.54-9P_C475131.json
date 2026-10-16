@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475131",
+  "uuid": "b423f9018f6a428d8e738a45820f103e",
+  "title": "CONN-TH_9P-P2.54_KF141R-2.54-9P",
+  "source_api": "https://easyeda.com/api/products/C475131/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/b423f9018f6a428d8e738a45820f103e",
+  "easyeda_transform": {
+    "origin": "4041.6521,3011",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_9P-P2.54_KF141R-2.54-9P"
+}

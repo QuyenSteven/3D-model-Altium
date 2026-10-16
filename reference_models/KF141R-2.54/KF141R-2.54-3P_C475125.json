@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475125",
+  "uuid": "6f235dcd990e47ce820e54756e21abda",
+  "title": "CONN-TH_3P-P2.54_KF141R-2.54-3P",
+  "source_api": "https://easyeda.com/api/products/C475125/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/6f235dcd990e47ce820e54756e21abda",
+  "easyeda_transform": {
+    "origin": "4011.8962,3010.9449",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_3P-P2.54_KF141R-2.54-3P"
+}

@@ -1,0 +1,13 @@
+{
+  "lcsc_id": "C475130",
+  "uuid": "39b736494fa34b85b800bc31d7dc9b80",
+  "title": "CONN-TH_8P-P2.54_KF141R-2.54-8P",
+  "source_api": "https://easyeda.com/api/products/C475130/components?version=6.4.19.5",
+  "source_step": "https://modules.easyeda.com/qAxj6KHrDKw4blvCG8QJPs7Y/39b736494fa34b85b800bc31d7dc9b80",
+  "easyeda_transform": {
+    "origin": "4036.8962,3010.9449",
+    "rotation": "0,0,0",
+    "z": "-13.7795"
+  },
+  "package_title": "CONN-TH_8P-P2.54_KF141R-2.54-8P"
+}
