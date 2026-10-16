@@ -141,3 +141,11 @@
 - PCB-critical pin placement locked from C475132 section data: two THT pins per pole, Y rows -1.053145 / +4.027003 mm, ~5.08 mm row spacing, first pole 0.95 mm from the left housing edge.
 - Important: the pin/pole array is intentionally asymmetric relative to housing length; future models must not auto-center it.
 - Canonical generator: `generators/generate_kf141r_254.py`.
+
+## 2026-10-17 — KF141R-2.54 visual correction from real-product photo
+
+- User supplied a real KF141R photo showing the actual molded body, circular wire-entry holes, exposed orange actuators, rear top rail and open-top channel.
+- Earlier hand-built housing was too blocky and did not match the real part.
+- New canonical generator: `generate_kf141r254.py`, output `V2_PHOTO_MATCHED` for 2P..10P.
+- PCB-critical pin geometry remains tied to the exact EasyEDA/LCSC reference family (C475124..C475132): X pitch 2.54 mm, first pole 0.95 mm from left body edge, Y rows -1.053145 / +4.027003 mm.
+- Visual housing/lever geometry is tuned to the real photo; pin centers remain the priority.
