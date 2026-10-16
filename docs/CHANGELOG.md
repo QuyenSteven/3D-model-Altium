@@ -134,3 +134,10 @@
 - Canonical user-target geometry now uses edge-to-Pin1 = 1.13 mm, within-group pitch = 2.54 mm, and Pin4-to-Pin6 center gap = 12.50 mm.
 - Applies to both QDX05GXXXX-B and QDX12GXXXX-B.
 \n## 2026-10-04 — HI-LINK HLK-10M 10W series\n\n- Added HLK-10M03 / 05 / 09 / 12 / 15 / 24 STEP generator.\n- Mechanical envelope: 46.9 x 27.8 x 21.8 mm.\n- Exact pin centers and 0.8 mm square pin section were extracted from the EasyEDA STEP for LCSC C403746 (HLK-10M12): P1/P2 at X=-21.25,Y=±3.90; P3/P4 at X=+21.25,Y=±11.40 mm.\n- PCB plane is body bottom Z=0; tail length 5.02 mm.\n- Same package geometry is reused across the six voltage variants; marking changes by model.\n
+## 2026-10-17 — KF141R-2.54 2P..10P
+
+- Added KF141R-2.54 right-angle spring terminal block family, 2P through 10P.
+- Pulled exact LCSC/EasyEDA references C475124..C475132 into `reference_models/KF141R-2.54/`.
+- PCB-critical pin placement locked from C475132 section data: two THT pins per pole, Y rows -1.053145 / +4.027003 mm, ~5.08 mm row spacing, first pole 0.95 mm from the left housing edge.
+- Important: the pin/pole array is intentionally asymmetric relative to housing length; future models must not auto-center it.
+- Canonical generator: `generators/generate_kf141r_254.py`.
