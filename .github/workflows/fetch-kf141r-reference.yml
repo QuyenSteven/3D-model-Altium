@@ -1,0 +1,47 @@
+name: Fetch KF141R-2.54 reference STEP
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/fetch-kf141r-reference.yml"
+      - "scripts/fetch_lcsc_reference.py"
+      - "scripts/analyze_step.py"
+      - "scripts/section_step_xy.py"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install CadQuery
+        run: |
+          python -m pip install --upgrade pip
+          pip install "cadquery>=2.5"
+      - name: Fetch C475132 exact EasyEDA STEP
+        run: |
+          python scripts/fetch_lcsc_reference.py C475132 reference_models/KF141R-2.54/C475132_KF141R-2.54-10P.step
+          python scripts/analyze_step.py reference_models/KF141R-2.54/C475132_KF141R-2.54-10P.step reference_models/KF141R-2.54/C475132_KF141R-2.54-10P.analysis.json
+          python scripts/section_step_xy.py reference_models/KF141R-2.54/C475132_KF141R-2.54-10P.step reference_models/KF141R-2.54/C475132_z-12.section_xy.json -12
+          python scripts/section_step_xy.py reference_models/KF141R-2.54/C475132_KF141R-2.54-10P.step reference_models/KF141R-2.54/C475132_z-8.section_xy.json -8
+      - name: Commit reference
+        run: |
+          git config user.name "3D Model Altium Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reference_models/KF141R-2.54
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "reference: add exact KF141R-2.54 10P EasyEDA STEP"
+            git pull --rebase origin main
+            git push origin main
+          fi
