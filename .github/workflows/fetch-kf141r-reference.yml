@@ -8,6 +8,7 @@ on:
       - ".github/workflows/fetch-kf141r-reference.yml"
       - "scripts/fetch_lcsc_reference.py"
       - "scripts/analyze_step.py"
+      - "scripts/section_step_xy.py"
 
 permissions:
   contents: write
@@ -48,6 +49,8 @@ jobs:
             python scripts/fetch_lcsc_reference.py "$ID" "$STEP"
             python scripts/analyze_step.py "$STEP" "$META"
           done
+          python scripts/section_step_xy.py reference_models/KF141R-2.54/KF141R-2.54-10P_C475132.step reference_models/KF141R-2.54/C475132_z-3.section_xy.json -3
+          python scripts/section_step_xy.py reference_models/KF141R-2.54/KF141R-2.54-10P_C475132.step reference_models/KF141R-2.54/C475132_z-1.section_xy.json -1
       - name: Commit reference family
         run: |
           git config user.name "3D Model Altium Bot"
